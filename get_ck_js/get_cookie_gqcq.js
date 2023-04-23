@@ -7,7 +7,7 @@ const regexToken = new RegExp(`${keyToken}=([^;]+)`); 使用 RegExp 构造函数
 */
 const cookieName = '广汽传祺token'
 
-const regexToken = /token:\s?(.*)/;
+const regexToken = /token:\s?([^\s]+)/i;
 
 let headerToken = $request.headers['token']
 
