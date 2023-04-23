@@ -1,18 +1,18 @@
 /*
-广汽传祺在QX中抓取的token值是倒序 例如xxx : token
+广汽传祺小程序
 */
 const cookieName = '广汽传祺小程序token'
+const keyToken = 'token'; // 指定要匹配的请求头中的键名
+const regexToken = new RegExp(`${keyToken}\\s*:\\s*([^\s;]+)`, 'i'); // 根据键名创建正则表达式对象
 
-const regexToken = /token:\s?([^\s]+)/i;
-
-let headerToken = $request.headers['token'];
+let headerToken = $request.headers[keyToken];
 
 if (headerToken) {
-  let token = regexToken.exec(headerToken)[1].split('').reverse().join('');
-  console.log(`${cookieName}: Token=${headerToken}`);
-  $notify(`${cookieName}`, '', `Token=${headerToken}`);
+  let token = regexToken.exec(headerToken)[1];
+  console.log(`${cookieName}: Token: ${token}`);
+  $notify(`${cookieName}`, '', `token=${token}`);
 } else {
-  $notify(cookieName, '获取广汽传祺小程序token失败', '请检查请求头中是否包含token');
+  $notify(cookieName, '获取Token失败', `请检查请求头中是否包含${keyToken}`);
 }
 
 
