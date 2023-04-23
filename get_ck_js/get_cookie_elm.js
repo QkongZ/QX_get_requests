@@ -1,10 +1,10 @@
 /*
 [rewrite_local]
 # 获取饿了么的Cookie
-^https?://h5\.ele\.me/restapi/eus/login/mobile_send_code url script-request-header https://example.com/eleme_cookie.js
+^https?://h5\.ele\.me/restapi/bgs/poi url script-response-header https://raw.githubusercontent.com/QkongZ/QX_get_ck/main/get_ck_js/get_cookie_elm.js
 
 # 输出Cookie到日志中，并添加备注信息
-^https?://h5\.ele\.me/ script-response-body log-header="Cookie: $SID;$cookie2;$USERID;$_tb_token_; #饿了么Cookie"
+# ^https?://h5\.ele\.me/ script-response-body log-header="Cookie: $SID;$cookie2;$USERID;$_tb_token_; #饿了么Cookie"
 [mitm]
 # 配置MitM主机名
 hostname = h5.ele.me
