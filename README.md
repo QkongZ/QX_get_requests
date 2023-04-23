@@ -1,0 +1,2 @@
+# QX_get_ck
+自用QuantumultX自动获取对应app的cookie，用于方便提交对应的变量脚本中
