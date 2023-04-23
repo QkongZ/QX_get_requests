@@ -4,6 +4,8 @@
 const keyToken = 'token'; 使用 keyToken 来表示 token 的键名
 
 const regexToken = new RegExp(`${keyToken}=([^;]+)`); 使用 RegExp 构造函数创建一个正则表达式对象来匹配对应键名的值。
+
+"token=" + token
 */
 const cookieName = '广汽传祺token'
 
@@ -12,7 +14,7 @@ const regexToken = /token:\s?([^\s]+)/i;
 let headerToken = $request.headers['token']
 
 if (headerToken) {
-  let token = regexCookie.exec(headerToken)[1];
+  let token = regexToken.exec(headerToken)[1];
   console.log(`${cookieName}: Token: ${token}`);
   $notify(`${cookieName}`, '', `token=${headerToken}`);
 } else {
