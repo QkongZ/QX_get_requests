@@ -9,16 +9,58 @@
 # 配置MitM主机名
 hostname = h5.ele.me
 */
-const cookieVal = $request.headers['Cookie'];
-const SID = getCookieValue(cookieVal, 'SID');
-const cookie2 = getCookieValue(cookieVal, 'cookie2');
-const USERID = getCookieValue(cookieVal, 'USERID');
-const _tb_token_ = getCookieValue(cookieVal, '_tb_token_');
+const cookieName = '饿了么cookie'
+const key1 = 'SID'
+const key2 = 'cookie2'
+const key3 = 'USERID'
+const key4 = '_tb_token_'
+const regex1 = new RegExp(`${key1}=([^;]+)`)
+const regex2 = new RegExp(`${key2}=([^;]+)`)
+const regex3 = new RegExp(`${key3}=([^;]+)`)
+const regex4 = new RegExp(`${key4}=([^;]+)`)
 
-$done({ headers: { 'Cookie': 'SID=' + SID + '; cookie2=' + cookie2 + '; USERID=' + USERID + '; _tb_token_=' + _tb_token_ + ';' } });
+let headerCookie = $request.headers['Cookie']
 
-function getCookieValue(cookie, name) {
-  const pattern = new RegExp(name + '=([^;]*)');
-  const matches = pattern.exec(cookie);
-  return matches ? matches[1] : '';
+if (headerCookie) {
+  let cookie = {}
+  if (regex1.test(headerCookie)) {
+    cookie[key1] = regex1.exec(headerCookie)[1]
+  }
+  if (regex2.test(headerCookie)) {
+    cookie[key2] = regex2.exec(headerCookie)[1]
+  }
+  if (regex3.test(headerCookie)) {
+    cookie[key3] = regex3.exec(headerCookie)[1]
+  }
+  if (regex4.test(headerCookie)) {
+    cookie[key4] = regex4.exec(headerCookie)[1]
+  }
+
+  console.log(`${cookieName}: ${JSON.stringify(cookie)}`)
+  $notify(`${cookieName}`, '', `SID: ${cookie[key1]}\n${key2}: ${cookie[key2]}\n${key3}: ${cookie[key3]}\n${key4}: ${cookie[key4]}`)
+} else {
+  $notify(`${cookieName}`, '获取Cookie失败', '请检查请求头中是否包含Cookie')
 }
+
+let cookie = $request.headers['Cookie'];
+let matchResult = cookie.match(/SID=([^;]*)/);
+if (matchResult) {
+    $notify("饿了么Cookie获取成功！", "", "SID=" + matchResult[1]);
+}
+matchResult = cookie.match(/cookie2=([^;]*)/);
+if (matchResult) {
+    $notify("饿了么Cookie获取成功！", "", "cookie2=" + matchResult[1]);
+}
+matchResult = cookie.match(/USERID=([^;]*)/);
+if (matchResult) {
+    $notify("饿了么Cookie获取成功！", "", "USERID=" + matchResult[1]);
+}
+matchResult = cookie.match(/_tb_token_=([^;]*)/);
+if (matchResult) {
+    $notify("饿了么Cookie获取成功！", "", "_tb_token_=" + matchResult[1]);
+}
+console.log("饿了么Cookie获取成功！Cookie：" + cookie);
+
+$done({});
+$notification.post("获取饿了么Cookie成功！", "请查看日志或弹窗获取Cookie信息。");
+
