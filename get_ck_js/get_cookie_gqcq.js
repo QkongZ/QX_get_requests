@@ -18,10 +18,10 @@ if (headerToken) {
   console.log(`${cookieName}: Token: ${token}`);
   $notify(`${cookieName}`, '', `token=${headerToken}`);
 } else {
-  $notify(cookieName, '获取Cookie失败', '请检查请求头中是否包含Cookie');
+  $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
 }
 
-$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`)
+$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取token信息。`)
 console.log(`${cookieName}获取成功！`)
 console.log(`Cookie：${headerToken}`)
 
