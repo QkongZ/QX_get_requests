@@ -36,31 +36,20 @@ if (headerCookie) {
     cookie[key4] = regex4.exec(headerCookie)[1]
   }
 
-  console.log(`${cookieName}: ${JSON.stringify(cookie)}`)
-  $notify(`${cookieName}`, '', `SID: ${cookie[key1]}\n${key2}: ${cookie[key2]}\n${key3}: ${cookie[key3]}\n${key4}: ${cookie[key4]}`)
+  let cookieValues = []
+  for (const key in cookie) {
+    cookieValues.push(`${key}: ${cookie[key]}`)
+  }
+  let cookieString = `${key1}=${cookie[key1]}; ${key2}=${cookie[key2]}; ${key3}=${cookie[key3]}; ${key4}=${cookie[key4]};`
+
+console.log(`${cookieName}: ${JSON.stringify(cookie)}`)
+$notify(`${cookieName}`, '', cookieString)
 } else {
-  $notify(`${cookieName}`, '获取Cookie失败', '请检查请求头中是否包含Cookie')
+  $notify(cookieName, '获取Cookie失败', '请检查请求头中是否包含Cookie')
 }
 
-let cookie = $request.headers['Cookie'];
-let matchResult = cookie.match(/SID=([^;]*)/);
-if (matchResult) {
-    $notify("饿了么Cookie获取成功！", "", "SID=" + matchResult[1]);
-}
-matchResult = cookie.match(/cookie2=([^;]*)/);
-if (matchResult) {
-    $notify("饿了么Cookie获取成功！", "", "cookie2=" + matchResult[1]);
-}
-matchResult = cookie.match(/USERID=([^;]*)/);
-if (matchResult) {
-    $notify("饿了么Cookie获取成功！", "", "USERID=" + matchResult[1]);
-}
-matchResult = cookie.match(/_tb_token_=([^;]*)/);
-if (matchResult) {
-    $notify("饿了么Cookie获取成功！", "", "_tb_token_=" + matchResult[1]);
-}
-console.log("饿了么Cookie获取成功！Cookie：" + cookie);
+$notify('饿了么Cookie获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`)
+console.log(`${cookieName}获取成功！`)
+console.log(`Cookie：${headerCookie}`)
 
-$done({});
-$notification.post("获取饿了么Cookie成功！", "请查看日志或弹窗获取Cookie信息。");
-
+$done({})
