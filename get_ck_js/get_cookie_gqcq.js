@@ -8,10 +8,10 @@ token：匹配 token 字符串；
 */
 const cookieName = '广汽传祺token';
 const regexToken = /token\s*:\s*([^\s]+)/i;
-let header = $request.headers['token'];
+let header = $request.headers;
 
-if (header) {
-  let token = regexToken.exec(header)[1];
+if (header['token']) {
+  let token = regexToken.exec(header['token'])[1];
   console.log(`${cookieName}: Token: ${token}`);
   $notify(`${cookieName}`, '', `Token=${token}`);
 } else {
@@ -20,7 +20,8 @@ if (header) {
 
 $notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取token信息。`)
 console.log(`${cookieName}获取成功！`)
-console.log(`Cookie：${headerToken}`)
+console.log(`Token：${token}`)
 
 setTimeout($done, 1000)
 $done({})
+
