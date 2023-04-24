@@ -6,30 +6,21 @@ token：匹配 token 字符串；
 \s*:\s*：匹配冒号前后的空格；
 ([^\s]+)：匹配至少一个非空白字符，并捕获该值。
 */
-const cookieName = '广汽传祺token'
-const regexToken = /\b([^:]+)\s*:\s*token\s*(.*)/i;
-let headerValue = '';
-for (const key in $request.headers) {
-  if (key.toLowerCase().endsWith(':token')) {
-    headerValue = $request.headers[key];
-    break;
-  }
-}
-if (headerValue) {
-  const matches = regexToken.exec(headerValue);
-  if (matches && matches.length >= 3) {
-    const key = matches[1];
-    const value = matches[2];
-    console.log(`匹配到的token为：${key}，值为：${value}`);
-  } else {
-    console.log('未匹配到token和值');
-  }
+const cookieName = '广汽传祺token';
+const regexToken = /token\s*:\s*([^\s]+)/i;
+let header = $request.headers['token'];
+
+if (header) {
+  let token = regexToken.exec(header)[1];
+  console.log(`${cookieName}: Token: ${token}`);
+  $notify(`${cookieName}`, '', `Token=${token}`);
 } else {
-  console.log('请求头中未包含指定的token');
+  $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
 }
 
-$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`)
+$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取token信息。`)
 console.log(`${cookieName}获取成功！`)
 console.log(`Cookie：${headerToken}`)
 
+setTimeout($done, 1000)
 $done({})
