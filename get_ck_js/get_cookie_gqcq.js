@@ -17,7 +17,7 @@ if (header['token']) {
 } else {
   $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
 }
-
+console.log(regexToken.test(header['token']));
 $notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取token信息。`)
 console.log(`${cookieName}获取成功！`)
 console.log(`Token：${token}`)
