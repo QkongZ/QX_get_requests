@@ -19,6 +19,6 @@ if (tokenMatch && deviceIdMatch) {
 
 $notify('云原神token获取成功！', '', `${cookieName}获取成功！(请去掉前面的Token=)请查看日志或弹窗获取Cookie信息。`);
 console.log(`${cookieName}获取成功！`);
-console.log(`Cookie：${headers['x-rpc-combo_token']};devId=${headers['x-rpc-device_id']}`);
+console.log(`Token：${headers['x-rpc-combo_token']};devId=${headers['x-rpc-device_id']}`);
 
 $done({});
