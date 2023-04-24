@@ -12,6 +12,6 @@ if (urlRegex.test(url)) {
 
 $notify('原神祈愿🔗获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取七七信息。`)
 console.log(`${cookieName}获取成功！`)
-console.log(`Cookie：${headerCookie}`)
+console.log(`url：${url}`)
 
 $done({});
