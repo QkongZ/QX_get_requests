@@ -7,21 +7,26 @@ token：匹配 token 字符串；
 ([^\s]+)：匹配至少一个非空白字符，并捕获该值。
 */
 const cookieName = '广汽传祺token';
-const regexToken = /token\s*:\s*([^\s]+)/i;
-let header = $request.headers;
+const tokenRegex = /token:\s*([^;\n]+)/i;
 
-if (header['token']) {
-  let token = regexToken.exec(header['token'])[1];
-  console.log(`${cookieName}: Token: ${token}`);
-  $notify(`${cookieName}`, '', `Token=${token}`);
+
+const headers = $request.headers;
+const tokenMatch = tokenRegex.exec(headers['token']);
+
+
+if (tokenMatch) {
+  const token = tokenMatch[1];
+  const deviceId = deviceIdMatch[1];
+  console.log(`Token: ${token}`);
+  $notify('匹配到Token', '', `Token= ${token}`);
 } else {
   $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
 }
-console.log(regexToken.test(header['token']));
-$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取token信息。`)
-console.log(`${cookieName}获取成功！`)
+
+$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`);
+console.log(`${cookieName}获取成功！`);
 console.log(`Token：${token}`)
 
 setTimeout($done, 1000)
-$done({})
+$done({});
 
