@@ -3,7 +3,7 @@
 广汽传祺小程序
 */
 const cookieName = '广汽传祺小程序token';
-const tokenRegex = /token:\s*(.*?)(;|$)/i;
+const tokenRegex = /token:\s*([^;\n]+)/i;
 
 
 const headers = $request.headers;
