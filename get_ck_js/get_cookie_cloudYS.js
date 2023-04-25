@@ -6,11 +6,12 @@ const headers = $request.headers;
 const tokenMatch = tokenRegex.exec(headers['x-rpc-combo_token']);  
 const deviceIdMatch = deviceIdRegex.exec(headers['x-rpc-device_id']); 
 
-  let cookieString = `${token};devId=${deviceId}`
+
 
 if (tokenMatch && deviceIdMatch) {  
   const token = tokenMatch[1];  
-  const deviceId = deviceIdMatch[1];  
+  const deviceId = deviceIdMatch[1];
+  let cookieString = `${token};devId=${deviceId}`
   console.log(`${cookieName}: ${JSON.stringify(cookieString)}`)  
   // console.log(`Token：${token};devId=${deviceId}`);  
   $notify(`${cookieName}`, '', cookieString)  
