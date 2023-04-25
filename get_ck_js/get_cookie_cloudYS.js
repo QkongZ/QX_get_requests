@@ -14,7 +14,7 @@ if (tokenMatch && deviceIdMatch) {
   let cookieString = `${token};devId=${deviceId}`
   console.log(`${cookieName}: ${cookieString}`);  
   // console.log(`Token：${token};devId=${deviceId}`);  
-  $notify(`${cookieName}`, '', cookieString)  
+  $notify(`${cookieName}`, '', ${cookieString})  
 } else {  
   console.log(cookieName, 'Cookie设置失败。请确认 URL、日志或弹窗中是否包含 token');  
   $notify(cookieName, '云原神token获取失败', '请检查请求头中是否包含token');  
