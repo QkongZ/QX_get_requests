@@ -12,7 +12,7 @@ if (tokenMatch && deviceIdMatch) {
   const token = tokenMatch[1];  
   const deviceId = deviceIdMatch[1];
   let cookieString = `${token};devId=${deviceId}`
-  console.log(`${cookieName}: ${JSON.stringify(cookieString)}`)  
+  console.log(`${cookieName}: ${cookieString}`);  
   // console.log(`Token：${token};devId=${deviceId}`);  
   $notify(`${cookieName}`, '', cookieString)  
 } else {  
