@@ -12,7 +12,7 @@ if (tokenMatch && deviceIdMatch) {
   const token = tokenMatch[1];  
   const deviceId = deviceIdMatch[1];
   console.log(`Token: ${token};devId=${deviceId}`);  
-  $notify(`${cookieName}`, '', `Token：${headers['x-rpc-combo_token']};devId=${headers['x-rpc-device_id']}`);  
+  $notify(`${cookieName}`, '', `Token: ${token};devId=${deviceId}`)
 } //else {  
   //console.log(cookieName, 'Cookie设置失败。请确认 URL、日志或弹窗中是否包含 token');  
  // $notify(cookieName, '云原神token获取失败', '请检查请求头中是否包含token');  
