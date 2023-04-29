@@ -9,7 +9,7 @@ const url = $request.url;
 let urlString = `${cookieName}=${url}`; // 把多余的 "}" 删掉
 
 if (urlRegex.test(url)) {
-  console.log(`${cookieName}: ${JSON.stringify(url)}`);
+  console.log(`${cookieName}: ${url}`);
   $notify(`${cookieName}`, '', urlString);
 } else {
   $notify(cookieName, '祈愿🔗获取失败', '请检查请求头中是否包含URL');
