@@ -6,7 +6,7 @@ const cookieName = '原神祈愿🔗';
 const urlRegex = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/\w+$/i;
 const url = $request.url;
 
-let urlString = `祈愿URL🔗=${url}`; // 把多余的 "}" 删掉
+let urlString = `${cookieName}=${url}`; // 把多余的 "}" 删掉
 
 if (urlRegex.test(url)) {
   console.log(`${cookieName}: ${JSON.stringify(url)}`);
