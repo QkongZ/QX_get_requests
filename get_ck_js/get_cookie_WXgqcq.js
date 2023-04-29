@@ -19,9 +19,10 @@ if (headers) {
   }
 }
 
+setTimeout(() => {
 $notify('广汽传祺小程序token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`);
 console.log(`${cookieName}获取成功！`);
 console.log(`Token：${headers['token']}`);
 
-setTimeout($done, 1000);
-$done({});
+  $done({});
+}, 1000);
