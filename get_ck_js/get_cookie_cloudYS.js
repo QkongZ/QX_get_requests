@@ -3,7 +3,7 @@ const tokenRegex = /x-rpc-combo_token\s*:\s*(.*?)(;|$)/i;
 const deviceIdRegex = /x-rpc-device_id\s*:\s*([^;\n]+)/i;  
 const headers = $request.headers;  
 
-//let tokenString = ''; // 初始化弹窗通知中的信息
+let tokenString = ''; // 初始化弹窗通知中的信息
 
 if (headers) {
   const tokenMatch = tokenRegex.exec(headers['x-rpc-combo_token']);  
@@ -12,8 +12,8 @@ if (headers) {
     const token = tokenMatch[1];  
     const deviceId = deviceIdMatch[1];
     console.log(`Token: ${token};devId=${deviceId}`);  
-    //tokenString = ``; // 将要显示的信息存储到变量中
-    $notify(`${cookieName}`, '', `Token：${headers['x-rpc-combo_token']};devId=${headers['x-rpc-device_id']}`); // 在弹窗通知中显示变量的值
+    tokenString = `${headers['x-rpc-combo_token']};devId=${headers['x-rpc-device_id']}`; // 将要显示的信息存储到变量中
+    $notify(`${cookieName}`, '', `Token：${tokenString}`); // 在弹窗通知中显示变量的值
   } else {  
     console.log(cookieName, 'Cookie设置失败。请确认 URL、日志或弹窗中是否包含 token');  
     $notify(cookieName, '云原神token获取失败', '请检查请求头中是否包含token');  
