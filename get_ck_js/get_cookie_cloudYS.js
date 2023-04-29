@@ -1,6 +1,6 @@
 const cookieName = '云原神token';  
-const tokenRegex = /x-rpc-combo_token:\s*(.*?)(;|$)/i;  
-const deviceIdRegex = /x-rpc-device_id:\s*([^;\n]+)/i;  
+const tokenRegex = /x-rpc-combo_token\s*:\s*(.*?)(;|$)/i;  
+const deviceIdRegex = /x-rpc-device_id\s*:\s*([^;\n]+)/i;  
 const headers = $request.headers;  
 
 //let tokenString = ''; // 初始化弹窗通知中的信息
