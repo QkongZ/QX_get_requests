@@ -10,7 +10,7 @@ let urlString = `祈愿URL🔗=${url}`; // 把多余的 "}" 删掉
 
 if (urlRegex.test(url)) {
   console.log(`${cookieName}: ${JSON.stringify(url)}`);
-  $notify(`${cookieName}`, '', `${urlString}`);
+  $notify(`${cookieName}`, '', urlString);
 } else {
   $notify(cookieName, '祈愿🔗获取失败', '请检查请求头中是否包含URL');
 }
