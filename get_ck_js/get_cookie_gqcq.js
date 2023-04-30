@@ -18,7 +18,9 @@ if (tokenMatch) {
   const token = tokenMatch[1];
   const deviceId = deviceIdMatch[1];
   console.log(`Token: ${token}`);
-  $notify('匹配到Token', '', `Token= ${token}`);
+  setTimeout(() => {
+    $notify('匹配到Token', '', `Token= ${token}`);
+  }, 1000);
 } else {
   $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
 }
