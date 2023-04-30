@@ -14,7 +14,9 @@ if (headers) {
     const deviceId = deviceIdMatch[1];
     console.log(`${cookieName}: Token=${token};devId=${deviceId}`);  
     let tokenString = `${token};devId=${deviceId}`; // 将要显示的信息存储到变量中
-    $notify(`${cookieName}`, '', tokenString); // 在弹窗通知中显示变量的值
+    setTimeout(() => {
+      $notify(`${cookieName}`, '', tokenString); // 在弹窗通知中显示变量的值
+    }, 1000);
 
 
     // 打印cookie中所有的键值对
