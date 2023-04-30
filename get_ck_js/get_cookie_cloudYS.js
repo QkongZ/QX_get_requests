@@ -21,7 +21,7 @@ if (headers) {
 
     // 打印cookie中所有的键值对
     let cookieValues = []
-    for (const key in $response.cookies) {
+    for (const key in $request.cookies) {
       cookieValues.push(`${key}: ${$request.headers.Cookie[key]}`)
     }
     console.log(`Cookie: ${cookieValues.join(', ')}`)
