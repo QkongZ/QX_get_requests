@@ -13,7 +13,9 @@ if (headers) {
     const token = tokenMatch[1];
     Token['token'] = token;
     console.log(`${cookieName}: ${JSON.stringify(Token)}`);
-    $notify(`${cookieName}`, '', JSON.stringify(Token));
+    setTimeout(() => {
+      $notify(`${cookieName}`, '', JSON.stringify(Token));
+    }, 1000);
   } else {
     $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
   }
