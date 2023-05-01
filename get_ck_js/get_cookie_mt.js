@@ -23,7 +23,7 @@ if (headerCookie) {
   for (const key in cookie) {
     cookieValues.push(`${key}: ${cookie[key]}`)
   }
-  let cookieString = `${key1}=${cookie[key1]};&${key2}=${cookie[key2]};`
+  let cookieString = `${key1}=${cookie[key1]};${key2}=${cookie[key2]};`
 
 console.log(`${cookieName}: ${JSON.stringify(cookie)}`)
 $notify(`${cookieName}`, '', cookieString)
