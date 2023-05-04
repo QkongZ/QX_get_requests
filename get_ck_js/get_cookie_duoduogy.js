@@ -12,6 +12,7 @@ if (headerCookie) {
   if (regex1.test(headerCookie)) {
     cookie[key1] = regex1.exec(headerCookie)[1]
   }
+}
 
 
   let cookieValues = []
