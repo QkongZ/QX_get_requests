@@ -33,6 +33,6 @@ $notify(`${cookieName}`, '', cookieString)
 
 $notify('美团token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`)
 console.log(`${cookieName}获取成功！`)
-console.log(`Cookie：${headerCookie}`)
+console.log(`完整🍪Cookie🍪：${headerCookie}`)
 
 $done({})
