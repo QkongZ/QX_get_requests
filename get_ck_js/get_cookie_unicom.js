@@ -8,11 +8,11 @@ if (body) {
   if (match) {
     const token = match[1];
     console.log(`${notifyName}: ${token}`);
-    $notify('匹配到 '${notifyName}' ', '', `${cookieName}=${token}`);
+    $notify(`匹配到 '${notifyName}' `, '', `${cookieName}=${token}`);
   }
 }
 
-$notify(''${notifyName}' 获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`)
+$notify(`'${notifyName}' 获取成功！`, '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`)
 console.log(`${cookieName}获取成功！`)
 console.log(`🔔输出完整${notifyName}：${body}`)
 
