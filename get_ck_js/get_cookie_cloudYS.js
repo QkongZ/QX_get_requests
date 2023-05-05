@@ -1,5 +1,5 @@
-const cookieName = '🍭云原神token';   
-const notifyName = '🍪Token';
+const cookieName = '云原神token🍭';   
+const notifyName = 'Token🍪';
 
 const headers = $request.headers;
 const match1 = $request.headers['x-rpc-combo_token'];
