@@ -4,7 +4,7 @@
 const cookieName = '多多果园Token🍭'
 const notifyName = 'Token🍪';
 
-const key1 = 'PDDAccesToken'
+const key1 = 'PDDAccessToken'
 const regex1 = new RegExp(`${key1}=([^;]+)`);
 
 let headerCookie = $request.headers['Cookie']
@@ -16,7 +16,7 @@ if (headerCookie) {
     console.log(`${notifyName}: ${key}`);
     $notify(`🎉${cookieName} 获取成功！`, '', `${notifyName}=${key}`);
   }else {
-  $notify(cookieName, '获取Token失败', '请检查请求头中是否包含PDDAccesToken')
+  $notify(cookieName, '获取Token失败', '请检查请求头中是否包含${notifyName}')
   }
 }
   
