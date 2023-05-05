@@ -3,28 +3,24 @@
 广汽传祺小程序
 */
 const cookieName = '广汽传祺小程序token';
+const notifyName = '🍪Token🍪'
 const tokenRegex = /token:\s*([^;\n]+)/i;
 const headers = $request.headers;
 
 if (headers) {
-  let Token = {};
-  const tokenMatch = tokenRegex.exec(headers['token']);
+  const tokenMatch = tokenRegex.exec(headers);
   if (tokenMatch) {
     const token = tokenMatch[1];
-    Token['token'] = token;
-    console.log(`${cookieName}: ${JSON.stringify(Token)}`);
-    setTimeout(() => {
-      $notify(`${cookieName}`, '', JSON.stringify(Token));
-    }, 1000);
+      $notify(`${cookieName}`, '', ${token});
   } else {
-    $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
+    $notify(cookieName, '获取'notifyName'失败', '请检查请求头中是否包含token');
   }
 }
 
-setTimeout(() => {
+
 $notify('广汽传祺小程序token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`);
 console.log(`${cookieName}获取成功！`);
-console.log(`Token：${headers['token']}`);
+console.log(`${notifyName}：${headers['token']}`);
 
-  $done({});
-}, 1000);
+setTimeout($done, 1000)
+$done({})
