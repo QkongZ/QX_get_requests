@@ -2,8 +2,8 @@
 正则匹配请求头中token键值
 广汽传祺小程序
 */
-const cookieName = '🍭广汽传祺小程序token';
-const notifyName = '🍪Token';
+const cookieName = '广汽传祺小程序token🍭';
+const notifyName = 'Token🍪';
 
 const headers = $request.headers;
 const match = $request.headers['token'];
