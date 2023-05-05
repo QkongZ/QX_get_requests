@@ -1,7 +1,9 @@
 /*
 获取拼多多，多多果园请求头的Cookie中PDDAccesToken  输出样式为 PDDAccesToken=XXX;
 */
-const cookieName = '多多果园Token'
+const cookieName = '多多果园Token🍭'
+const notifyName = 'Token🍪';
+
 const key1 = 'PDDAccesToken'
 const regex1 = new RegExp(`${key1}=([^;]+)`)
 
@@ -13,13 +15,6 @@ if (headerCookie) {
     cookie[key1] = regex1.exec(headerCookie)[1]
   }
 
-
-
-  let cookieValues = []
-  for (const key in cookie) {
-    cookieValues.push(`${key}: ${cookie[key]}`)
-  }
-  let cookieString = `${key1}=${cookie[key1]};`
 
 console.log(`${cookieName}: ${JSON.stringify(cookie)}`)
 $notify(`🍪${cookieName}🍪`, '', cookieString)
