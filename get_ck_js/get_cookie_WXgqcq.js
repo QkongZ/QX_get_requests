@@ -11,7 +11,8 @@ if (headers) {
   const tokenMatch = tokenRegex.exec(headers);
   if (tokenMatch) {
     const token = tokenMatch[1];
-      $notify(`${cookieName}`, '', ${token});
+    console.log(`${notifyName}: ${token}`);
+    $notify(`匹配到 '${notifyName}' `, '', `${cookieName}=${token}`);
   } else {
     $notify(`'${cookieName}'`, `获取'${notifyName}'失败`, '请检查请求头中是否包含token');
   }
