@@ -14,7 +14,7 @@ if (headers) {
   if (match) {
     const Token = match[1];
     console.log(`${notifyName}: ${Token}`);
-    $notify(`匹配到 ${notifyName} `, '', `${cookieName}=${Token}`);
+    $notify(`${notifyName} 获取成功！`, '🎉匹配成功🎉', `${cookieName}=${Token}`);
   } else {
     $notify(`${cookieName}`, `获取'${notifyName}'失败`, `请检查请求头中是否包含'${notifyName}'`);
   }
