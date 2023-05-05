@@ -1,34 +1,24 @@
 /*
-广汽传祺在QX中抓取的token值是倒序 例如xxx : token
-就在后面添加 .split('').reverse().join('')
-
-token：匹配 token 字符串；
-\s*:\s*：匹配冒号前后的空格；
-([^\s]+)：匹配至少一个非空白字符，并捕获该值。
+获取广汽传祺app中token值
 */
 const cookieName = '广汽传祺token';
-const tokenRegex = /token:\s*([^;\n]+)/i;
+const notifyName = '🍪Token🍪';
 
 
 const headers = $request.headers;
-const tokenMatch = tokenRegex.exec(headers['token']);
+const match = $request.headers['token'];
 
 
-if (tokenMatch) {
-  const token = tokenMatch[1];
-  const deviceId = deviceIdMatch[1];
-  console.log(`Token: ${token}`);
-  setTimeout(() => {
-    $notify('匹配到Token', '', `Token= ${token}`);
-  }, 1000);
+if (match) {
+  console.log(`${notifyName}: ${match}`);
+  $notify(`🎉${cookieName} 获取成功！🎉`, '', `${notifyName}=${match}`);
 } else {
-  $notify(cookieName, '获取token失败', '请检查请求头中是否包含token');
+  $notify(`${cookieName}`, `获取${notifyName}失败`, `请检查请求头中是否包含${notifyName}`);
 }
 
-$notify('广汽传祺token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`);
+$notify(`${cookieName}获取成功！`, '', `${cookieName}获取成功！请查看弹窗匹配值或日志查看完整值。`);
 console.log(`${cookieName}获取成功！`);
-console.log(`Token：${headers['token']}`);
+console.log(`🔔输出完整请求值：${JSON.stringify(headers, null, 2)}`);
 
 setTimeout($done, 1000)
-$done({});
-
+$done({})
