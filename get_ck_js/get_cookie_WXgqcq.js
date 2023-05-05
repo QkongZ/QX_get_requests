@@ -20,4 +20,4 @@ console.log(`${cookieName}获取成功！`);
 console.log(`🔔输出完整请求值：${JSON.stringify(headers, null, 2)}`);
 
 setTimeout($done, 1000);
-$done({});
+$done({})
