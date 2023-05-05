@@ -13,12 +13,12 @@ if (headers) {
     const token = tokenMatch[1];
       $notify(`${cookieName}`, '', ${token});
   } else {
-    $notify(cookieName, '获取'notifyName'失败', '请检查请求头中是否包含token');
+    $notify(`'${cookieName}'`, `获取'${notifyName}'失败`, '请检查请求头中是否包含token');
   }
 }
 
 
-$notify('广汽传祺小程序token获取成功！', '', `${cookieName}获取成功！请查看日志或弹窗获取Cookie信息。`);
+$notify(''${cookieName}'获取成功！', '', `${cookieName}获取成功！请查看弹窗匹配值或日志查看完整值。`);
 console.log(`${cookieName}获取成功！`);
 console.log(`${notifyName}：${headers['token']}`);
 
