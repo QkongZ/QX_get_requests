@@ -1,8 +1,8 @@
 /*
 获取广汽传祺app中token值
 */
-const cookieName = '🍭广汽传祺token';
-const notifyName = '🍪Token';
+const cookieName = '广汽传祺token🍭';
+const notifyName = 'Token🍪';
 
 
 const headers = $request.headers;
