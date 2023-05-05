@@ -7,11 +7,11 @@ const notifyName = 'Token🍪';
 const key1 = 'PDDAccesToken'
 const regex1 = new RegExp(`${key1}=([^;]+)`);
 
-const headerCookie = $request.headers['Cookie']
+let headerCookie = $request.headers['Cookie']
 
 if (headerCookie) {
   const match = regex1.exec(headerCookie);
-  if (match)) {
+  if (match) {
     const key = match[1]
     console.log(`${notifyName}: ${key}`);
     $notify(`🎉${cookieName} 获取成功！`, '', `${notifyName}=${key}`);
