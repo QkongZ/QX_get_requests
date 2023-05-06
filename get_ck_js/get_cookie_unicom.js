@@ -18,5 +18,5 @@ $notify(`${cookieName}获取成功！`, '', `${cookieName}获取成功！请查�
 console.log(`${cookieName}获取成功！`);
 console.log(`🔔输出完整请求值：\n${body}\n`);
 
-setTimeout($done, 1000);
-$done({});
+setTimeout($done, 1000)
+$done({})
