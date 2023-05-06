@@ -24,7 +24,7 @@ if (!notified) {
 
 
 console.log(`${cookieName}获取成功！`);
-console.log(`🔔输出完整请求值：${JSON.stringify(headers, null, 2)}\n`);
+console.log(`🔔输出完整请求值：\n${JSON.stringify(headers, null, 2)}\n`);
 
 setTimeout($done, 1000)
 $done({})
