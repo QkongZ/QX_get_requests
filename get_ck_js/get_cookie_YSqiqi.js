@@ -5,11 +5,11 @@
 const cookieName = '原神祈愿🔗';
 const notifyName = 'URL🍪';
 
-const Regex1 = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/\w+$/i;
+const regex1 = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/\w+$/i;
 const url = $request.url;
 
 
-if (Regex1.test(url)) {
+if (regex1.test(url)) {
   console.log(`${cookieName}: ${url}`);
   $notify(`${cookieName}`, '', `${url}`;
 } else {
