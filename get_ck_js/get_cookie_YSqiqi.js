@@ -11,14 +11,14 @@ const url = $request.url;
 
 if (regex1.test(url)) {
   console.log(`${cookieName}: ${url}`);
-  $notify(`${cookieName}`, '', `${url}`;
+  $notify(`🎉${cookieName}获取成功`, '', `${notifyName}=${url}`;
 } else {
   $notify(`❌${cookieName}获取失败`, '', `请检查请求头中是否包含${notifyName}`);
 }
 
-$notify(`🎉${cookieName}获取成功！`, '', `${notifyName}获取成功！请查看日志或弹窗获取七七信息。`);
+$notify(`${cookieName}获取成功！`, '', `${notifyName}获取成功！请查看日志或弹窗获取七七信息。`);
 console.log(`${cookieName}获取成功！`);
-console.log(`${notifyName}：\n${url}\n`);
+console.log(`🔔完整值${notifyName}：\n${url}\n`);
 
 setTimeout($done, 1000)
 $done({})
