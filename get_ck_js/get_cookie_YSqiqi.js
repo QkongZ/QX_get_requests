@@ -5,7 +5,7 @@
 const cookieName = '原神祈愿🔗';
 const notifyName = 'URL🍪';
 
-const regex1 = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/gacha_info\/api\/getGachaLog\?\w+$/i;
+const regex1 = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/gacha_info\/api\/getGachaLog\?\w+$/i[^ ]*;
 const url1 = $request.url;
 
 
