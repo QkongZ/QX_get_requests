@@ -5,7 +5,7 @@
 const cookieName = '崩铁🔗';
 const notifyName = 'URL🍪';
 
-const regex1 = /^https?:\/\/api-takumi\.mihoyo\.com\/common\/gacha_record\/api\/getGachaLog\?\w+$/i[^ ]*;
+const regex1 = /^https?:\/\/api-takumi\.mihoyo\.com\/common\/gacha_record\/api\/getGachaLog(.*?)\s/i;
 const url = $request.url;
 
 
