@@ -5,13 +5,13 @@
 const cookieName = '崩铁🔗';
 const notifyName = 'URL🍪';
 
-const regex1 = /^https?:\/\/api-takumi\.mihoyo\.com\/common\/gacha_record\/api\w+$/i;
+const regex1 = /^https?:\/\/api-takumi\.mihoyo\.com\/common\/gacha_record\/api\w+$/i[^ ]*;
 const url = $request.url;
 
 
 if (regex1.test(url)) {
   console.log(`${cookieName}: ${url}`);
-  $notify(`🎉${cookieName}获取成功`, '', `${notifyName}=${url}`;
+  $notify(`🎉${cookieName}获取成功`, '', `${notifyName}=${url}`);
 } else {
   $notify(`❌${cookieName}获取失败`, '', `请检查请求头中是否包含${notifyName}`);
 }
