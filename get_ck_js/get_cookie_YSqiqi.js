@@ -5,7 +5,7 @@
 const cookieName = '原神祈愿🔗';
 const notifyName = 'URL🍪';
 
-const regex1 = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/gacha_info\/api\/getGachaLog\?.*/i;\\匹配到任意字符，直到遇到空格或换行符为止
+const regex1 = /^https?:\/\/hk4e-api\.mihoyo\.com\/event\/gacha_info\/api\/getGachaLog\?.*/i;
 const url1 = $request.url;
 
 
