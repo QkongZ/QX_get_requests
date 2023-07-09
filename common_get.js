@@ -19,8 +19,8 @@ let responseBody = '';
 if (headerCookie) {
   const matchValue = regex1.exec(headerCookie);
   if (matchValue) {
-    const key = matchValue[1];
-    console.log(`${notifyName}: ${key}`);
+    const matchKey = matchValue[1];
+    console.log(`${notifyName}: ${matchKey}`);
     $notify(`🎉${getName} 获取成功！`, '', `${notifyName}=${key}`);
   } else {
     $notify(getName, '获取Token失败', `请检查请求头中是否包含${notifyName}`);
