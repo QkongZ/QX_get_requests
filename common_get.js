@@ -17,9 +17,9 @@ let responseHeaders = '';
 let responseBody = '';
 
 if (headerCookie) {
-  const match = regex1.exec(headerCookie);
-  if (match) {
-    const key = match[1];
+  const matchValue = regex1.exec(headerCookie);
+  if (matchValue) {
+    const key = matchValue[1];
     console.log(`${notifyName}: ${key}`);
     $notify(`🎉${getName} 获取成功！`, '', `${notifyName}=${key}`);
   } else {
