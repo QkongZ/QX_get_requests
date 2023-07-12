@@ -61,14 +61,16 @@ $notify(`获取为${domain}中的请求值！`, '🎉获取成功', `${log}`);
 
 
 // 4.转换请求头和响应头为 JSON 对象或保持原来格式
+/*
 if (convertToJson) {
   requestHeaders = JSON.parse(requestHeaders);
   responseHeaders = JSON.parse(responseHeaders);
 }
+*/
 
 // 5.. 输出完整请求值和响应值
 console.log(`🔔输出完整请求值：\n${JSON.stringify($request, null, 2)}\n`);
-console.log(`🔔输出完整响应值：\n${JSON.stringify($response, null, 2)}\n`);
+//console.log(`🔔输出完整响应值：\n${JSON.stringify($response, null, 2)}\n`);
 
 // 6. 执行完成操作
 setTimeout($done, 1000);
